@@ -1,0 +1,58 @@
+---
+title: "Questioning Question Time?"
+author: "Derwin McGeary"
+date: "12/04/2015"
+output: html_document
+---
+
+Recently the MP David Lammy criticised Question Time for its lack of diversity. Specifically he claimed that [61% of panels were all-white](http://www.theguardian.com/media/2015/dec/02/david-lammy-complaint-question-time-lack-ethnic-diversity).
+
+I wanted to investigate just how many all-white panels you could expect in a country with the demographics of the UK. Is 61% ridiculous? Does the BBC's claim that the panels represent "a fixed group of limited diversity" hold water?
+
+## The set up
+
+I wanted to compare the actual statistics for Question Time with two scenarios: the UK as a whole, and Parliament.
+
+```{r echo=FALSE}
+source('./simulation.R')
+```
+
+In the UK as a whole `r ukethnic[1]`% of people identify as white. [source](https://en.wikipedia.org/wiki/Ethnic_groups_in_the_United_Kingdom) For parliament, the percentage is `r round(100*parliamentethnic[1]/sum(parliamentethnic))`%. [source](http://www.theguardian.com/media/2015/dec/02/david-lammy-complaint-question-time-lack-ethnic-diversity)
+
+Here, we simulate 20 panels, each with 5 participants drawn at random from a group representative of the UK population.
+
+
+```{r, echo=FALSE}
+print(makeplot(uksubset, tknfrm="UK Population"))
+```
+
+In this plot we can see `r nshows` panels where `r allwhitepercent(uksubset)`% are all white.
+
+In the next plot we do the same thing, but we draw our panelists from the House of Commons.
+
+
+```{r, echo=FALSE}
+print(makeplot(hpsubset, tknfrm="Parliament"))
+```
+
+And here we can see that `r allwhitepercent(hpsubset)`% are all white. Unsurprisingly, there are more.
+
+## Comparison
+
+Now we can compare the reality of Question Time panels with a larger simulation of what we would expect on average if the population panelists were drawn from reflected the UK as a whole or if they reflected Parliament. We use 1000 simulations here just like the ones above, and aggregate the results. We are plotting the expected number of all-white or all-male panels and comparing with the actual numbers for Question Time. The all-male number was obtained by reading the list of episodes on Wikipedia. The only recent all-male panel was the party leaders' debate.
+
+```{r, echo=FALSE}
+suppressWarnings(compareplot())
+```
+
+We can see here that, compared to the UK as a whole, QT has an abnormally *low* number of all-male panels, compared to what we would expect if panelists were drawn at random from the population. On the other hand, QT has a number of all-white panels which lies somewhere between the higher number we would expect if we were drawing at random from MPs and lower than the number that we would expect to encounter if we were drawing at random from the populace.
+
+## Conclusions
+
+It seems that Question Time is more ethnically diverse than Parliament, and less so than the UK as a whole. The model used here is of course quite simplified. I have divided the population up into "White" and "BAME", as well as sticking to binary gender, and both of those paradigms are simplistic and somewhat problematic. Probably, for our "fixed group of limited diversity", the assumptions hold well, but real people in large populations are always more complicated.
+
+## Appendix 
+
+Source code for this analysis is [available on Github]().
+
+Thanks to [Ronald Wimberly](https://twitter.com/RaynardFaux), whose [excellent story](https://thenib.com/lighten-up-4f7f96ca8a7e#.td54aoyzh) informed the colour choices for my simulated panels.
