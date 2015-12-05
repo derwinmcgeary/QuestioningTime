@@ -53,6 +53,6 @@ It seems that Question Time is more ethnically diverse than Parliament, and less
 
 ## Appendix 
 
-Source code for this analysis is [available on Github]().
+Source code for this analysis is [available on Github](https://github.com/derwinmcgeary/QuestioningTime). Please feel free to submit issues, study it or otherwise play with it. Licensed as [Creative Commons Attribution.](http://creativecommons.org/licenses/by/3.0/)
 
-Thanks to [Ronald Wimberly](https://twitter.com/RaynardFaux), whose [excellent story](https://thenib.com/lighten-up-4f7f96ca8a7e#.td54aoyzh) informed the colour choices for my simulated panels.
+Hat tip to [Ronald Wimberly](https://twitter.com/RaynardFaux), whose [excellent story](https://thenib.com/lighten-up-4f7f96ca8a7e#.td54aoyzh) informed the colour choices for my simulated panels.

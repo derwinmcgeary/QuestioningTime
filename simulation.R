@@ -80,6 +80,6 @@ compareplot <- function() {
                      Parliament=simulation(populous,1000)*100,
                      QuestionTime=c(0.005,0.61)*100))
   
-  comparison <- ggplot(melt(try), aes(fill=Population, x=variable, y=value)) + geom_bar(stat='identity', position="dodge") + scale_y_continuous(limits=c(0,100))
+  comparison <- ggplot(melt(try), aes(fill=Population, x=variable, y=value)) +  theme_bw() + geom_bar(stat='identity', position="dodge") + scale_y_continuous(limits=c(0,100))
   print(comparison+ labs(title="Question Time versus simulations", x="", y="percentage"))
 }
