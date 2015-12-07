@@ -1,7 +1,7 @@
 ---
 title: "Questioning Question Time?"
 author: "Derwin McGeary"
-date: "12/04/2015"
+date: "04/12/2015"
 output: html_document
 ---
 
@@ -17,7 +17,7 @@ I wanted to compare the actual statistics for Question Time with two scenarios: 
 source('./simulation.R')
 ```
 
-In the UK as a whole `r ukethnic[1]`% of people identify as white. [source](https://en.wikipedia.org/wiki/Ethnic_groups_in_the_United_Kingdom) For parliament, the percentage is `r round(100*parliamentethnic[1]/sum(parliamentethnic))`%. [source](http://www.theguardian.com/media/2015/dec/02/david-lammy-complaint-question-time-lack-ethnic-diversity)
+In the UK as a whole `r ukethnic[1]`% of people identify as white. [[source]](https://en.wikipedia.org/wiki/Ethnic_groups_in_the_United_Kingdom) For parliament, the percentage is `r round(100*parliamentethnic[1]/sum(parliamentethnic))`%. [[source]](http://www.theguardian.com/media/2015/dec/02/david-lammy-complaint-question-time-lack-ethnic-diversity)
 
 Here, we simulate 20 panels, each with 5 participants drawn at random from a group representative of the UK population.
 
@@ -26,7 +26,7 @@ Here, we simulate 20 panels, each with 5 participants drawn at random from a gro
 print(makeplot(uksubset, tknfrm="UK Population"))
 ```
 
-In this plot we can see `r nshows` panels where `r allwhitepercent(uksubset)`% are all white.
+In this plot we can see `r nshows` panels and `r allwhitepercent(uksubset)`% of them are all white.
 
 In the next plot we do the same thing, but we draw our panelists from the House of Commons.
 
@@ -35,13 +35,13 @@ In the next plot we do the same thing, but we draw our panelists from the House 
 print(makeplot(hpsubset, tknfrm="Parliament"))
 ```
 
-And here we can see that `r allwhitepercent(hpsubset)`% are all white. Unsurprisingly, there are more.
+And here we can see that `r allwhitepercent(hpsubset)`% are all white. Unsurprisingly, there are more than in the first plot.
 
 ## Comparison
 
 Now we can compare the reality of Question Time panels with a larger simulation of what we would expect on average if the population panelists were drawn from reflected the UK as a whole or if they reflected Parliament. We use 1000 simulations here just like the ones above, and aggregate the results. We are plotting the expected number of all-white or all-male panels and comparing with the actual numbers for Question Time. The all-male number was obtained by reading the list of episodes on Wikipedia. The only recent all-male panel was the party leaders' debate.
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, message=FALSE}
 suppressWarnings(compareplot())
 ```
 
