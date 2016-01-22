@@ -36,7 +36,7 @@ makeplot <- function(subset, shows=nshows, tknfrm="") {
                       shape=Sex,
                       fill=Ethnicity,
                       colour=Ethnicity)) + 
-    geom_point(size=9) +
+    geom_point(size=9) + geom_point(size=8) + geom_point(size=8.5) +
     #    scale_shape_manual(values=c("Male"=25,"Female"=24)) +
     scale_shape_manual(values=c("Male"="\u2642", "Female"="\u2640")) + 
     scale_colour_manual(values=c("BAME"="#c39e73","White"="#f8e0a1")) + 
